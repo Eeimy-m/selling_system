@@ -1,3 +1,5 @@
+package model;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -31,7 +33,7 @@ public abstract sealed class Employee permits Reseller, Consultant{
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "model.Employee{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", brithDate=" + brithDate +

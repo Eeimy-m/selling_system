@@ -1,10 +1,11 @@
+package model;
+
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 public final class Consultant extends Employee {
-    private final List<Employee> employees = new ArrayList<>();
+    private final Set<Employee> employees = new HashSet<>();
 
     public Consultant(String id, String name, LocalDate brithDate, double solidValue) {
         super(id, name, brithDate, solidValue);
@@ -23,7 +24,7 @@ public final class Consultant extends Employee {
         employees.add(employee);
     }
 
-//    public Set<Employee> getEmployees() {
-//        return
-//    }
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
 }
