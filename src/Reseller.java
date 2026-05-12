@@ -6,5 +6,8 @@ public final class Reseller extends Employee {
         super(id, name, brithDate, solidValue);
     }
 
-    public double getComission() {return 0;}
+    @Override
+    public double getComission() {
+        return this.getSolidValue() * 0.15;
+    }
 }

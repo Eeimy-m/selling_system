@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 import java.util.Objects;
 
-public sealed class Employee permits Reseller, Consultant{
+public abstract sealed class Employee permits Reseller, Consultant{
     private String id;
     private String name;
     private LocalDate brithDate;
@@ -14,7 +14,7 @@ public sealed class Employee permits Reseller, Consultant{
         this.solidValue = solidValue;
     }
 
-//    public double getComission();
+    public abstract double getComission();
 
 
     @Override

@@ -10,8 +10,13 @@ public final class Consultant extends Employee {
         super(id, name, brithDate, solidValue);
     }
 
+    @Override
     public double getComission() {
-        return 0;
+        double subordinatesComission = employees.stream()
+                .mapToDouble(Employee::getComission)
+                .sum();
+
+        return (this.getSolidValue() * 0.15) + (subordinatesComission * 0.30);
     }
 
     public void addEmployee(Employee employee) {
