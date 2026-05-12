@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class Employee {
+public sealed class Employee permits Reseller, Consultant{
     private String id;
     private String name;
     private LocalDate brithDate;
@@ -12,6 +12,8 @@ public class Employee {
         this.brithDate = brithDate;
         this.solidValue = solidValue;
     }
+
+//    public double getComission();
 
     public String getId() {
         return id;
