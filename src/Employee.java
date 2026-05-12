@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.Objects;
 
 public sealed class Employee permits Reseller, Consultant{
     private String id;
@@ -14,6 +15,29 @@ public sealed class Employee permits Reseller, Consultant{
     }
 
 //    public double getComission();
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(id, employee.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", brithDate=" + brithDate +
+                ", solidValue=" + solidValue +
+                '}';
+    }
 
     public String getId() {
         return id;
