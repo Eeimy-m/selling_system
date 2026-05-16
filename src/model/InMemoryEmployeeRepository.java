@@ -6,6 +6,7 @@ import persistence.Repository;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 public class InMemoryEmployeeRepository implements Repository<String, Employee> {
     private final static Map<String, Employee> repo = new HashMap<>();
@@ -25,9 +26,9 @@ public class InMemoryEmployeeRepository implements Repository<String, Employee> 
     }
 
     @Override
-    public Employee findById(String id) {
+    public Optional<Employee> findById(String id) {
         if(!repo.containsKey(id))
             throw new NoSuchElementException("Employee does not exist in the application");
-        return repo.get(id);
+        return Optional.ofNullable(repo.get(id));
     }
 }

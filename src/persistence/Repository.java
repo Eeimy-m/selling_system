@@ -1,8 +1,9 @@
 package persistence;
 
+import java.util.Optional;
+
 public interface Repository<K, V> {
     void save(V value);
     void update(V value);
-    V findById(K id);
-    //previna que métodos de consulta venham a retornar objetos nulos
+    Optional<V> findById(K id);
 }

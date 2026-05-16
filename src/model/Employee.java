@@ -9,11 +9,14 @@ public abstract sealed class Employee permits Reseller, Consultant{
     private LocalDate brithDate;
     private double solidValue;
 
-    public Employee(String id, String name, LocalDate brithDate, double solidValue) {
+    private Consultant consultant;
+
+    public Employee(String id, String name, LocalDate brithDate, double solidValue, Consultant consultant) {
         this.id = id;
         this.name = name;
         this.brithDate = brithDate;
         this.solidValue = solidValue;
+        this.consultant = consultant;
     }
 
     public abstract double getComission();
@@ -33,12 +36,7 @@ public abstract sealed class Employee permits Reseller, Consultant{
 
     @Override
     public String toString() {
-        return "model.Employee{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", brithDate=" + brithDate +
-                ", solidValue=" + solidValue +
-                '}';
+        return String.format("");
     }
 
     public String getId() {
@@ -55,5 +53,9 @@ public abstract sealed class Employee permits Reseller, Consultant{
 
     public double getSolidValue() {
         return solidValue;
+    }
+
+    public Consultant getConsultant() {
+        return consultant;
     }
 }

@@ -7,8 +7,12 @@ import java.util.Set;
 public final class Consultant extends Employee {
     private final Set<Employee> employees = new HashSet<>();
 
-    public Consultant(String id, String name, LocalDate brithDate, double solidValue) {
-        super(id, name, brithDate, solidValue);
+    public Consultant(String id, String name, LocalDate brithDate, double solidValue, Consultant consultantInCharge) {
+        super(id, name, brithDate, solidValue, consultantInCharge);
+    }
+
+    public Consultant(Reseller reseller) {
+        super(reseller.getId(), reseller.getName(), reseller.getBrithDate(), reseller.getSolidValue(), reseller.getConsultant());
     }
 
     @Override
