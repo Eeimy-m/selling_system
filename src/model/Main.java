@@ -20,6 +20,6 @@ public class Main {
         registrationService.register("54654654654", "Grace Murray Hopper", LocalDate.parse("1906-12-09"), 432.0, "21321321313");
         registrationService.register("65465465464", "John von Neumann", LocalDate.parse("1903-12-28"), 300.00, "45645645646");
 
-        reportService.reportOf("12312312312");
+        System.out.println(reportService.reportOf("12312312312"));
     }
 }

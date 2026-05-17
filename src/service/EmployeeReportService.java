@@ -20,8 +20,9 @@ public class EmployeeReportService {
     }
 
     public String buildString(Employee employee, String spaces) {
+        System.out.println(employee.getClass());
         StringBuilder builder = new StringBuilder();
-        builder.append(employee.toString()).append("\n");
+        builder.append(spaces).append(employee).append("\n");
 
         if(employee instanceof Consultant consultant) {
             for(Employee reseller : consultant.getEmployees()) {

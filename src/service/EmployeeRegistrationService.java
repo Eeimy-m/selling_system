@@ -22,7 +22,6 @@ public class EmployeeRegistrationService {
         }
 
         Employee employeeInCharge = repository.findById(consultantInChargeId).orElseThrow(IllegalStateException::new);
-
         Consultant consultant = (employeeInCharge instanceof Reseller reseller)
                 ? new Consultant(reseller)
                 : (Consultant) employeeInCharge;
