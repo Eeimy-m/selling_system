@@ -11,6 +11,10 @@ public final class Consultant extends Employee {
         super(id, name, brithDate, solidValue, consultantInCharge);
     }
 
+    public Consultant(String id, String name, LocalDate brithDate, double solidValue) {
+        super(id, name, brithDate, solidValue);
+    }
+
     public Consultant(Reseller reseller) {
         super(reseller.getId(), reseller.getName(), reseller.getBrithDate(), reseller.getSolidValue(), reseller.getConsultant());
     }

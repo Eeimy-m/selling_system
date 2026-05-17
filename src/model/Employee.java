@@ -19,6 +19,13 @@ public abstract sealed class Employee permits Reseller, Consultant{
         this.consultant = consultant;
     }
 
+    public Employee(String id, String name, LocalDate brithDate, double solidValue) {
+        this.id = id;
+        this.name = name;
+        this.brithDate = brithDate;
+        this.solidValue = solidValue;
+    }
+
     public abstract double getComission();
 
 

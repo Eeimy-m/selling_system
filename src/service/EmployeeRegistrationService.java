@@ -14,14 +14,20 @@ public class EmployeeRegistrationService {
         this.repository = repository;
     }
 
-    public void register(String id, String name, LocalDate brithDate, double solidValue, String consultantInChargeId) {
+    public void register(String id, String name, LocalDate birthDate, double solidValue, String consultantInChargeId) {
+        if(consultantInChargeId == null) {
+            Consultant consultant = new Consultant(id, name, birthDate, solidValue);
+            repository.save(consultant);
+            return;
+        }
+
         Employee employeeInCharge = repository.findById(consultantInChargeId).orElseThrow(IllegalStateException::new);
 
         Consultant consultant = (employeeInCharge instanceof Reseller reseller)
                 ? new Consultant(reseller)
                 : (Consultant) employeeInCharge;
 
-        Reseller reseller = new Reseller(id, name, brithDate, solidValue, consultant);
+        Reseller reseller = new Reseller(id, name, birthDate, solidValue, consultant);
         consultant.addEmployee(reseller);
 
         repository.save(reseller);
