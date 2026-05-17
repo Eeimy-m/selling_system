@@ -36,7 +36,7 @@ public abstract sealed class Employee permits Reseller, Consultant{
 
     @Override
     public String toString() {
-        return String.format("");
+        return String.format("[%s] %s | Birthday: %s | Amount in Sales: US$%.2f | Commission: US$%.2f", id, name, brithDate, solidValue, this.getComission());
     }
 
     public String getId() {

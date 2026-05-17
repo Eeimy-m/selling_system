@@ -1,5 +1,6 @@
 package service;
 
+import exception.EntityAlreadyExistsException;
 import model.Consultant;
 import model.Employee;
 import persistence.Repository;
@@ -14,7 +15,7 @@ public class EmployeeReportService {
     }
 
     public String reportOf(String id) {
-        Employee employee = repository.findById(id).orElseThrow(() -> new IllegalArgumentException("The Employee wasn't found in system"));
+        Employee employee = repository.findById(id).orElseThrow(IllegalStateException::new);
         return buildString(employee, "");
     }
 

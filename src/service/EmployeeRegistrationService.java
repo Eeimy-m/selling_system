@@ -8,7 +8,6 @@ import persistence.Repository;
 import java.time.LocalDate;
 
 public class EmployeeRegistrationService {
-
     private final Repository<String, Employee> repository;
 
     public EmployeeRegistrationService(Repository<String, Employee> repository) {

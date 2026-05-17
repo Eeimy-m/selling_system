@@ -28,7 +28,7 @@ public class InMemoryEmployeeRepository implements Repository<String, Employee> 
     @Override
     public Optional<Employee> findById(String id) {
         if(!repo.containsKey(id))
-            throw new NoSuchElementException("Employee does not exist in the application");
+            throw new NoSuchElementException("Id wasn't found in the application");
         return Optional.ofNullable(repo.get(id));
     }
 }

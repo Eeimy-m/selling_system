@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public final class Reseller extends Employee {
 
