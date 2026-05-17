@@ -8,10 +8,6 @@ import java.time.LocalDate;
 
 public class Main {
     static void main() {
-        /*No método Main, crie um repositório concreto e o injete nas classes de serviço. Na
-        sequência, crie objetos para os dados de teste e os registre com o apoio da respectiva classe
-        de serviço. Também utilizando uma classe de serviço, produza um relatório para o
-        funcionário no topo da hierarquia de vendas e, depois, realize a impressão no console.*/
         InMemoryEmployeeRepository repo = new InMemoryEmployeeRepository();
         EmployeeRegistrationService registrationService = new EmployeeRegistrationService(repo);
         EmployeeReportService reportService = new EmployeeReportService(repo);

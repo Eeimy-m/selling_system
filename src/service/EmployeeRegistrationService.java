@@ -16,6 +16,7 @@ public class EmployeeRegistrationService {
 
     public void register(String id, String name, LocalDate brithDate, double solidValue, String consultantInChargeId) {
         Employee employeeInCharge = repository.findById(consultantInChargeId).orElseThrow(IllegalStateException::new);
+
         Consultant consultant = (employeeInCharge instanceof Reseller reseller)
                 ? new Consultant(reseller)
                 : (Consultant) employeeInCharge;
