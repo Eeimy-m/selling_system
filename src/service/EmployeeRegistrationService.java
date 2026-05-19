@@ -15,11 +15,8 @@ public class EmployeeRegistrationService {
     }
 
     public void register(String id, String name, LocalDate birthDate, double solidValue, String consultantInChargeId) {
-        if(consultantInChargeId == null) {
-            Consultant consultant = new Consultant(id, name, birthDate, solidValue);
-            repository.save(consultant);
-            return;
-        }
+        if(id == null) throw new IllegalArgumentException("ID is null");
+        if(id.isBlank()) throw new IllegalArgumentException("ID is blank");
 
         Employee employeeInCharge = repository.findById(consultantInChargeId).orElseThrow(IllegalStateException::new);
         Consultant consultant = (employeeInCharge instanceof Reseller reseller)
