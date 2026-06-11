@@ -23,10 +23,10 @@ public class EmployeeRegistrationService {
                 ? new Consultant(reseller)
                 : (Consultant) employeeInCharge;
 
-        Reseller reseller = new Reseller(id, name, birthDate, solidValue, consultant);
-        consultant.addEmployee(reseller);
+        Reseller newReseller = new Reseller(id, name, birthDate, solidValue, consultant);
+        consultant.addEmployee(newReseller);
 
-        repository.save(reseller);
+        repository.save(newReseller);
         repository.update(consultant);
     }
 }
